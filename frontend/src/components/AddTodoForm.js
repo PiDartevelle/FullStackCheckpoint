@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useTodosContext } from "../hooks/useTodosContext";
 
 const TodoForm = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [error, setError] = useState(null);
+  const { dispatch } = useTodosContext();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +30,8 @@ const TodoForm = () => {
       setTitle("");
       setAuthor("");
       setContent("");
-      console.log("new workout added:", json);
+      console.log("new todo added:", json);
+      dispatch({ type: "CREATE_TODO", payload: json });
     }
   };
 
