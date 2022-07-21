@@ -5,7 +5,6 @@ import { useTodosContext } from "../hooks/useTodosContext";
 
 const Home = () => {
   const { todos, dispatch } = useTodosContext();
-  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const fetchTodos = async () => {
