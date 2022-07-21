@@ -23,7 +23,6 @@ const Home = () => {
         {todos &&
           todos.map((todo) => <TodoDetails key={todo._id} todo={todo} />)}
       </div>
-      <TodoForm />
     </div>
   );
 };
