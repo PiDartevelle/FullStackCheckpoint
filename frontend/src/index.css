@@ -32,7 +32,7 @@ header a {
 }
 .pages{
   max-width: 1400px;
-  height: 80vh;
+  height: 100vh;
   padding: 20px;
   margin: 0 auto;
   background-color: #f1f1f1;
@@ -89,6 +89,9 @@ header a {
 /* new todo form */
 label, input {
   display: block;
+}
+.todo-update{
+  margin-top: 150px;
 }
 input {
   padding: 10px;
