@@ -3,12 +3,14 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import FormPage from "./pages/formPage";
 import { TodoDetails } from "./components/TodoDetails";
+import BtnToggle from "./components/BtnToggle/BtnToggle";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <BtnToggle />
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />}></Route>
