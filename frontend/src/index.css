@@ -15,6 +15,8 @@ body {
 header {
   width: 100vw;
   background: #fff;
+  position: fixed;
+  z-index: 30;
 }
 header .container {
   max-width: 1400px;
@@ -30,18 +32,21 @@ header a {
 }
 .pages{
   max-width: 1400px;
+  height: 100vh;
   padding: 20px;
   margin: 0 auto;
+  background-color: #f1f1f1;
 }
-
 /* homepage */
 .home {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100vh;
 }
 .todos {
   width: 100vw;
+  height: 80vh;
   display: flex;
   flex-direction: column;
 }
@@ -74,6 +79,7 @@ header a {
   font-weight: 600;
   border-radius: 10px;
   color: #333;
+  transition: all 0.3s ease-in-out;
 }
 .todo-details span:hover, .todo-details span:active {
   background-color: var(--error);
@@ -83,6 +89,9 @@ header a {
 /* new todo form */
 label, input {
   display: block;
+}
+.todo-update{
+  margin-top: 150px;
 }
 input {
   padding: 10px;

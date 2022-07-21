@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Todo from "../components/Todos";
+import { ThemeContext } from "../context/ThemeContext";
 import { useTodosContext } from "../hooks/useTodosContext";
 
 const Home = () => {
   const { todos, dispatch } = useTodosContext();
+  const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
     const fetchTodos = async () => {
@@ -15,9 +17,9 @@ const Home = () => {
       }
     };
     fetchTodos();
-  }, [dispatch]);
+  }, [dispatch, todos]);
   return (
-    <div className="home">
+    <div className={"home"}>
       <div className="todos">
         {todos &&
           todos.map((todo) => (

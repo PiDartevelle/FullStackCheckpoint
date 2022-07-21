@@ -12,6 +12,10 @@ export const todosReducer = (state, action) => {
       return {
         todos: [action.payload, ...state.todos],
       };
+    case "UPDATE_TODO":
+      return {
+        todos: [action.payload],
+      };
     case "DELETE_TODO":
       return {
         todos: state.todos.filter((w) => w._id !== action.payload._id),
