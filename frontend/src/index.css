@@ -6,12 +6,14 @@
   --primary: #1aac83;
   --error: #e7195a;
 }
+
 body {
   background: #f1f1f1;
   margin: 0;
   font-family: "Poppins";
 }
 header {
+  width: 100vw;
   background: #fff;
 }
 header .container {
@@ -28,17 +30,26 @@ header a {
 }
 .pages{
   max-width: 1400px;
+  height: 100vh;
   padding: 20px;
   margin: 0 auto;
+  background-color: #f1f1f1;
 }
-
 /* homepage */
 .home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.todos {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
 }
 .todo-details {
+  width: 60%;
   background: #fff;
   border-radius: 4px;
   margin: 20px auto;
@@ -58,19 +69,26 @@ header a {
 }
 .todo-details span {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
   background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 10px;
   color: #333;
+  transition: all 0.3s ease-in-out;
+}
+.todo-details span:hover, .todo-details span:active {
+  background-color: var(--error);
+  color: white;
 }
 
-/* new workout form */
+/* new todo form */
 label, input {
   display: block;
 }
+
 input {
   padding: 10px;
   margin-top: 10px;
@@ -96,4 +114,17 @@ div.error {
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
+.detailed-todo {
+  display: flex;
+  
+}
+
+@media screen and (max-width: 480px) {
+  .todo-details {
+    width: 80%;
+  }
 }

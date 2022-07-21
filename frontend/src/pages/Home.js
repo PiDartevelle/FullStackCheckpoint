@@ -1,23 +1,30 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import TodoForm from "../components/AddTodoForm";
-import TodoDetails from "../components/TodoDetails";
+import { useContext, useEffect } from "react";
+import Todo from "../components/Todos";
+import { ThemeContext } from "../context/ThemeContext";
+import { useTodosContext } from "../hooks/useTodosContext";
 
 const Home = () => {
-  const [todos, setTodos] = useState([]);
+  const { todos, dispatch } = useTodosContext();
+
   useEffect(() => {
     const fetchTodos = async () => {
-      await axios.get("/api/todos").then((res) => setTodos(res.data));
+      const response = await fetch("/api/todos");
+      const json = await response.json();
+
+      if (response.ok) {
+        dispatch({ type: "SET_TODOS", payload: json });
+      }
     };
     fetchTodos();
-  }, []);
+  }, [dispatch, todos]);
   return (
-    <div className="home">
+    <div className={"home"}>
       <div className="todos">
         {todos &&
-          todos.map((todo) => <TodoDetails key={todo._id} todo={todo} />)}
+          todos.map((todo) => (
+            <Todo key={todo._id} todo={todo} id={todo._id} />
+          ))}
       </div>
-      <TodoForm />
     </div>
   );
 };

@@ -28,6 +28,24 @@ const getTodo = async (req, res) => {
 
 const createTodo = async (req, res) => {
   const { title, author, content } = req.body;
+
+  let emptyFields = [];
+
+  if (!title) {
+    emptyFields.push("title");
+  }
+  if (!author) {
+    emptyFields.push("author");
+  }
+  if (!content) {
+    emptyFields.push("content");
+  }
+  if (emptyFields.length > 0) {
+    return res
+      .status(400)
+      .json({ error: "Please fill in all required fields", emptyFields });
+  }
+  // add a new document to the DB
   try {
     const todo = await Todo.create({ title, author, content });
     res.status(200).json(todo);
