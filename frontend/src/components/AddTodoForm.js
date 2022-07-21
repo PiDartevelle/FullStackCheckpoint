@@ -6,6 +6,8 @@ const TodoForm = () => {
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
   const [error, setError] = useState(null);
+  const [emptyFields, setEmptyfields] = useState([]);
+
   const { dispatch } = useTodosContext();
 
   const handleSubmit = async (e) => {
@@ -24,9 +26,11 @@ const TodoForm = () => {
 
     if (!response.ok) {
       setError(json.error);
+      setEmptyfields(json.emptyFields);
     }
     if (response.ok) {
       setError(null);
+      setEmptyfields([]);
       setTitle("");
       setAuthor("");
       setContent("");
@@ -44,6 +48,7 @@ const TodoForm = () => {
         type="text"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
+        className={emptyFields.includes("title") ? "error" : ""}
       />
 
       <label>Todo Author</label>
@@ -51,6 +56,7 @@ const TodoForm = () => {
         type="text"
         onChange={(e) => setAuthor(e.target.value)}
         value={author}
+        className={emptyFields.includes("author") ? "error" : ""}
       />
 
       <label>Todo Content</label>
@@ -58,6 +64,7 @@ const TodoForm = () => {
         type="text"
         onChange={(e) => setContent(e.target.value)}
         value={content}
+        className={emptyFields.includes("content") ? "error" : ""}
       />
 
       <button>Add Todo</button>

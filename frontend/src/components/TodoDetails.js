@@ -18,7 +18,9 @@ const TodoDetails = ({ todo }) => {
       <h4>{todo.title}</h4>
       <p>Author: {todo.author}</p>
       <p>Todo: {todo.content}</p>
-      <span onClick={handleClick}>Delete</span>
+      <span className="material-symbols-outlined" onClick={handleClick}>
+        delete
+      </span>
     </div>
   );
 };

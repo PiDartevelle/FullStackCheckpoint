@@ -58,13 +58,18 @@ header a {
 }
 .todo-details span {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   cursor: pointer;
   background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 10px;
   color: #333;
+}
+.todo-details span:hover {
+  background-color: var(--error);
+  color: white;
 }
 
 /* new todo form */
@@ -96,4 +101,7 @@ div.error {
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
 }
