@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
-import FormPage from "./pages/FormPage";
+import FormPage from "./pages/formPage";
+import { TodoDetails } from "./components/TodoDetails";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/FormPage" element={<FormPage />}></Route>
+            <Route path="/formPage" element={<FormPage />}></Route>
+            <Route path="/todos/:id" element={<TodoDetails />}></Route>
           </Routes>
         </div>
       </BrowserRouter>

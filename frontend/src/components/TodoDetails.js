@@ -1,32 +1,30 @@
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { useTodosContext } from "../hooks/useTodosContext";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
-const TodoDetails = ({ todo }) => {
+export const TodoDetails = () => {
   const { dispatch } = useTodosContext();
+  const { id } = useParams();
+  const [todo, setTodo] = useState([]);
 
-  const handleClick = async () => {
-    const response = await fetch("/api/todos/" + todo._id, {
-      method: "DELETE",
-    });
-    const json = await response.json();
+  useEffect(() => {
+    const fetchTodos = async () => {
+      const response = await fetch(`/api/todos/${id}`);
+      const json = await response.json();
 
-    if (response.ok) {
-      dispatch({ type: "DELETE_TODO", payload: json });
-    }
-  };
+      if (response.ok) {
+        dispatch({ type: "SET_TODOS", payload: json });
+        setTodo(json);
+      }
+      console.log(todo);
+    };
+    fetchTodos();
+  }, []);
   return (
-    <div className="todo-details">
-      <h4>{todo.title}</h4>
-      <p>Author: {todo.author}</p>
-      <p>Todo: {todo.content}</p>
-      <p>
-        {formatDistanceToNow(new Date(todo.createdAt), { addSuffix: true })}
-      </p>
-      <span className="material-symbols-outlined" onClick={handleClick}>
-        delete
-      </span>
+    <div>
+      <h1>{todo.title}</h1>
+      <h1>{todo.author}</h1>
+      <h1>{todo.content}</h1>
     </div>
   );
 };
-
-export default TodoDetails;
