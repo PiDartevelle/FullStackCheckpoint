@@ -7,6 +7,9 @@ const Navbar = () => {
         <Link to="/">
           <h1> Todo List</h1>
         </Link>
+        <Link to="/FormPage">
+          <h4>Add a Todo</h4>
+        </Link>
       </div>
     </header>
   );

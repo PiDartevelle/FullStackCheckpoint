@@ -6,12 +6,14 @@
   --primary: #1aac83;
   --error: #e7195a;
 }
+
 body {
   background: #f1f1f1;
   margin: 0;
   font-family: "Poppins";
 }
 header {
+  width: 100vw;
   background: #fff;
 }
 header .container {
@@ -34,11 +36,17 @@ header a {
 
 /* homepage */
 .home {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todos {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
 }
 .todo-details {
+  width: 60%;
   background: #fff;
   border-radius: 4px;
   margin: 20px auto;
@@ -67,7 +75,7 @@ header a {
   border-radius: 10px;
   color: #333;
 }
-.todo-details span:hover {
+.todo-details span:hover, .todo-details span:active {
   background-color: var(--error);
   color: white;
 }
@@ -104,4 +112,11 @@ div.error {
 }
 input.error {
   border: 1px solid var(--error);
+}
+
+
+@media screen and (max-width: 480px) {
+  .todo-details {
+    width: 80%;
+  }
 }
