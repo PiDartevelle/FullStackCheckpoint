@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useTodosContext } from "../hooks/useTodosContext";
+import "../index.css";
 
 export const TodoDetails = () => {
   const { dispatch } = useTodosContext();
@@ -21,10 +22,10 @@ export const TodoDetails = () => {
     fetchTodos();
   }, []);
   return (
-    <div>
+    <div className="detailed-todo">
       <h1>{todo.title}</h1>
-      <h1>{todo.author}</h1>
-      <h1>{todo.content}</h1>
+      <h3>{todo.author}</h3>
+      <p>{todo.content}</p>
     </div>
   );
 };
