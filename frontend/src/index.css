@@ -60,7 +60,7 @@ header a {
   color: var(--primary);
 }
 .todo-details p {
-  margin: 0;
+  margin: .5rem;
   font-size: 0.9em;
   color: #555;
 }
@@ -113,9 +113,12 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
+
+/* TODO DETAILS */
+
 .detailed-todo {
   display: flex;
-  
+  flex-direction: column;
 }
 
 @media screen and (max-width: 480px) {

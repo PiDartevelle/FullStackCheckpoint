@@ -21,8 +21,8 @@ const Todos = ({ todo }) => {
         <h4>{todo.title}</h4>
       </Link>
 
-      <p>Author: {todo.author}</p>
-      <p>Todo: {todo.content}</p>
+      <p>({todo.author})</p>
+      <p>Details: {todo.content}</p>
       <p>
         {formatDistanceToNow(new Date(todo.createdAt), { addSuffix: true })}
       </p>
